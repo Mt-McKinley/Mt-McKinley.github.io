@@ -24,10 +24,6 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background: var(--primary-color);
-    background-image: 
-        linear-gradient(rgba(27, 27, 27, 0.97), rgba(27, 27, 27, 0.97)),
-        url('https://raw.githubusercontent.com/Mt-McKinley/Mt-McKinley.github.io/main/assets/images/paper-texture.png');
-    background-repeat: repeat;
 }
 
 * {
@@ -59,8 +55,7 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://raw.githubusercontent.com/Mt-McKinley/Mt-McKinley.github.io/main/assets/images/vintage-paper.png');
-    opacity: 0.1;
+    background: rgba(0, 0, 0, 0.2);
     pointer-events: none;
 }
 
@@ -263,8 +258,7 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://raw.githubusercontent.com/Mt-McKinley/Mt-McKinley.github.io/main/assets/images/vintage-paper.png');
-    opacity: 0.05;
+    background: rgba(0, 0, 0, 0.1);
     pointer-events: none;
 }
 
