@@ -1,14 +1,33 @@
 /* Global Styles */
 :root {
-    --primary-color: #1a1a1a;
-    --secondary-color: #007bff;
-    --accent-color: #00c2ff;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-    --white: #ffffff;
-    --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --primary-color: #1B1B1B;
+    --secondary-color: #4A5D45;  /* Forest green */
+    --accent-color: #8B7355;     /* Warm wood brown */
+    --text-color: #E8E6E3;       /* Aged parchment */
+    --light-bg: #2C2C2C;         /* Dark gray */
+    --white: #F5F5F5;            /* Off-white */
+    --gold: #9B8650;             /* Antique gold */
+    --cream: #E8E6E3;            /* Cream */
+    --dark-wood: #3E2C1E;        /* Dark wood */
+    --gradient: linear-gradient(135deg, var(--secondary-color), var(--dark-wood));
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     --transition: all 0.3s ease;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Cormorant Garamond', 'Times New Roman', serif;
+}
+
+/* Add @import for Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--primary-color);
+    background-image: 
+        linear-gradient(rgba(27, 27, 27, 0.97), rgba(27, 27, 27, 0.97)),
+        url('https://raw.githubusercontent.com/Mt-McKinley/Mt-McKinley.github.io/main/assets/images/paper-texture.png');
+    background-repeat: repeat;
 }
 
 * {
@@ -26,91 +45,131 @@ body {
 /* Header Styles */
 header {
     background: var(--primary-color);
-    color: var(--white);
+    color: var(--cream);
     text-align: center;
     padding: 3rem 0 2rem;
     position: relative;
-    box-shadow: var(--shadow);
+    border-bottom: 2px solid var(--gold);
 }
 
-header::after {
+header::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--gradient);
+    bottom: 0;
+    background: url('https://raw.githubusercontent.com/Mt-McKinley/Mt-McKinley.github.io/main/assets/images/vintage-paper.png');
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 .profile-photo {
     width: 180px;
     height: 180px;
-    border-radius: 50%;
+    border-radius: 8px;
     margin-bottom: 1.5rem;
-    border: 4px solid var(--white);
-    box-shadow: var(--shadow);
+    border: 8px solid var(--dark-wood);
+    box-shadow: 
+        0 0 0 1px var(--gold),
+        var(--shadow);
     transition: var(--transition);
+    transform: rotate(-2deg);
 }
 
 .profile-photo:hover {
-    transform: scale(1.05);
-    border-color: var(--accent-color);
+    transform: rotate(0deg) scale(1.02);
+    border-color: var(--gold);
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-family: var(--font-serif);
+    font-size: 3rem;
     margin-bottom: 0.5rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: var(--shadow);
+    color: var(--gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
 }
 
 header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-family: var(--font-sans);
+    font-size: 1.3rem;
+    color: var(--cream);
     margin-bottom: 1.5rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
 }
 
 nav {
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
+    position: relative;
+}
+
+nav::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+nav::after {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 1.2rem;
 }
 
 nav a {
-    color: var(--white);
+    color: var(--cream);
     text-decoration: none;
     padding: 0.7rem 1.5rem;
-    border-radius: 25px;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
-    z-index: 1;
+    border: 1px solid transparent;
+}
+
+nav a::before,
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: var(--transition);
 }
 
 nav a::before {
-    content: '';
-    position: absolute;
     top: 0;
     left: 0;
-    width: 0;
-    height: 100%;
-    background: var(--gradient);
-    transition: var(--transition);
-    z-index: -1;
 }
 
-nav a:hover::before {
+nav a::after {
+    bottom: 0;
+    right: 0;
+}
+
+nav a:hover::before,
+nav a:hover::after {
     width: 100%;
 }
 
 nav a:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
+    color: var(--gold);
+    transform: translateY(-1px);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 /* Main Content Styles */
@@ -123,6 +182,22 @@ main {
 section {
     margin-bottom: 4rem;
     animation: fadeIn 0.5s ease-out;
+    background: rgba(44, 44, 44, 0.6);
+    padding: 2rem;
+    border: 1px solid var(--gold);
+    position: relative;
+}
+
+section::before {
+    content: '❧';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 2rem;
+    background: var(--primary-color);
+    padding: 0 1rem;
 }
 
 @keyframes fadeIn {
@@ -137,19 +212,29 @@ section {
 }
 
 h1, h2, h3 {
-    color: var(--primary-color);
+    font-family: var(--font-serif);
+    color: var(--gold);
     margin-bottom: 1.5rem;
     position: relative;
+    text-align: center;
 }
 
+h2 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+h2::before,
 h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--gradient);
-    margin-top: 0.5rem;
-    border-radius: 2px;
+    content: '—';
+    color: var(--accent-color);
+    margin: 0 1rem;
+    opacity: 0.7;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: var(--cream);
 }
 
 /* Project Cards */
@@ -161,19 +246,14 @@ h2::after {
 }
 
 .project-card {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    padding: 1.75rem;
+    background: var(--light-bg);
+    border: 1px solid var(--gold);
+    padding: 2rem;
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.1);
     position: relative;
     overflow: hidden;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
+    transform: rotate(0.5deg);
 }
 
 .project-card::before {
@@ -181,9 +261,43 @@ h2::after {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient);
+    right: 0;
+    bottom: 0;
+    background: url('https://raw.githubusercontent.com/Mt-McKinley/Mt-McKinley.github.io/main/assets/images/vintage-paper.png');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-color: var(--accent-color);
+}
+
+.project-card h3 {
+    font-family: var(--font-serif);
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.project-card p {
+    color: var(--cream);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background: var(--dark-wood);
+    color: var(--cream);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+    display: inline-block;
+    border: 1px solid var(--gold);
 }
 
 .project-card img {
@@ -236,51 +350,80 @@ h2::after {
 /* Buttons and Interactive Elements */
 .btn {
     display: inline-block;
-    padding: 0.8rem 1.8rem;
-    background: var(--gradient);
-    color: var(--white);
+    padding: 0.8rem 2rem;
+    background: var(--dark-wood);
+    color: var(--cream);
     text-decoration: none;
-    border-radius: 25px;
     transition: var(--transition);
-    border: none;
+    border: 1px solid var(--gold);
     cursor: pointer;
-    font-weight: 500;
-    box-shadow: var(--shadow);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    letter-spacing: 1px;
     margin: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: var(--secondary-color);
+    border-color: var(--accent-color);
+    color: var(--white);
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 /* Form Styles */
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: var(--cream);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    transition: var(--transition);
+    padding: 1rem;
+    background: var(--light-bg);
+    border: 1px solid var(--gold);
+    color: var(--cream);
+    font-family: var(--font-sans);
     font-size: 1rem;
+    transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+    background: var(--primary-color);
 }
 
 .form-group textarea {
