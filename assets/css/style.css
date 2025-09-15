@@ -11,17 +11,42 @@
     --dark-wood: #2A1F1A;         /* Deeper wood */
     --forest-dark: #1F2D1F;       /* Deep forest */
     --moss-green: #4A5D45;        /* Moss accent */
+    --sage: #657F5E;              /* Sage green */
+    --fern: #526B48;              /* Fern green */
+    --bark: #4A3B32;              /* Tree bark */
+    --leaf-shadow: #2C3B2A;       /* Dark leaf */
     --parchment: #F4E9D9;         /* Old paper */
     --ink: #0F0F0F;               /* Dark ink */
+    
+    /* Nature-inspired gradients */
     --gradient: linear-gradient(135deg, var(--forest-dark), var(--dark-wood));
     --gradient-gold: linear-gradient(135deg, var(--gold), #8B7355);
+    --gradient-moss: linear-gradient(135deg, var(--moss-green), var(--forest-dark));
+    --gradient-forest: linear-gradient(to bottom, var(--leaf-shadow), var(--forest-dark));
+    
+    /* Enhanced shadows */
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-soft: 0 2px 15px rgba(0, 0, 0, 0.2);
+    --shadow-nature: 0 5px 15px rgba(74, 93, 69, 0.2);
+    
+    /* Transitions */
     --transition: all 0.3s ease;
+    
+    /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Cormorant Garamond', 'Times New Roman', serif;
+    
+    /* Borders and decorative elements */
     --border-ornate: 2px solid var(--gold);
+    --border-nature: 2px solid var(--moss-green);
     --ornate-shadow: 0 0 15px rgba(184, 162, 112, 0.1);
+    --nature-pattern: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(74, 93, 69, 0.05) 10px,
+        rgba(74, 93, 69, 0.05) 20px
+    );
 }
 
 /* Add @import for Google Fonts */
@@ -65,15 +90,10 @@ header::before {
     right: 0;
     bottom: 0;
     background: 
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)),
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 2px,
-            rgba(70, 90, 70, 0.05) 2px,
-            rgba(70, 90, 70, 0.05) 4px
-        );
+        linear-gradient(rgba(31, 45, 31, 0.7), rgba(31, 45, 31, 0.5)),
+        var(--nature-pattern);
     pointer-events: none;
+    opacity: 0.7;
 }
 
 header::after {
@@ -321,9 +341,22 @@ main {
     margin: 2rem auto;
     max-width: 700px;
     padding: 2rem;
-    background: var(--light-bg);
-    border: var(--border-ornate);
+    background: var(--gradient-forest);
+    border: var(--border-nature);
     position: relative;
+    box-shadow: var(--shadow-nature);
+}
+
+.intro-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--nature-pattern);
+    opacity: 0.05;
+    pointer-events: none;
 }
 
 .intro-quote {
@@ -410,15 +443,15 @@ section {
 
 section::before,
 section::after {
-    content: '❧';
+    content: '❦';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--gold);
+    color: var(--moss-green);
     font-size: 1.5rem;
     background: var(--primary-color);
     padding: 0 2rem;
-    text-shadow: var(--shadow);
+    text-shadow: var(--shadow-nature);
 }
 
 section::before {
@@ -519,15 +552,10 @@ h3 {
     right: 0;
     bottom: 0;
     background: 
-        linear-gradient(rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.9)),
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 2px,
-            rgba(70, 90, 70, 0.04) 2px,
-            rgba(70, 90, 70, 0.04) 4px
-        );
+        linear-gradient(rgba(31, 45, 31, 0.97), rgba(31, 45, 31, 0.97)),
+        var(--nature-pattern);
     pointer-events: none;
+    opacity: 0.9;
 }
 
 .project-card::after {
