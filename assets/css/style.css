@@ -508,9 +508,106 @@ h3 {
 
 /* Bio Section */
 .bio-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.bio-section {
+    margin-bottom: 3rem;
+    text-align: justify;
+}
+
+.intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--cream);
+    font-family: var(--font-serif);
+    margin-bottom: 2rem;
+    position: relative;
+    padding: 2rem;
+    background: var(--light-bg);
+    border: var(--border-ornate);
+}
+
+.interests-section, .journey-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--light-bg);
+    border: 1px solid var(--gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.interests-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
+}
+
+.interest-card {
+    padding: 1.5rem;
+    text-align: center;
+    background: var(--dark-wood);
+    border: 1px solid var(--gold);
+    transition: var(--transition);
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ornate-shadow);
+}
+
+.interest-card i {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.interest-card h4 {
+    color: var(--gold);
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.interest-card p {
+    color: var(--cream);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.bio-content h2 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: var(--font-serif);
+}
+
+.bio-content h3 {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-serif);
+    position: relative;
+}
+
+.bio-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--gradient-gold);
+}
+
+.bio-content p {
+    color: var(--cream);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
 
 /* Contact Section */
